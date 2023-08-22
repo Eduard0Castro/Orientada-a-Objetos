@@ -1,5 +1,6 @@
 #include<iostream>
 #include<cmath>
+#include<stdlib.h>
 using namespace std;
 
 //Protótipos das funções
@@ -14,15 +15,36 @@ void Bin2dec();
 void Palindromo();
 
 int main(){
-    Menu();
+    int esc = 1;
+    int number = 5;
+    
+    while (esc != 0){
+        Menu();
+        cin >> esc;
+        switch (esc){
+            case 1: Factorial(); break;
+            case 2: Primo(); break;
+            case 3: Menu(); break;
+            case 4: Base(100,16); break;
+            case 5: Retangulo(); break;
+            case 6: cout << "A soma é: " << Soma(number) << "\n"; break;
+            case 7: cout << Mdc(27, 18) << "\n"; break;
+            case 8: Bin2dec(); break;
+            case 9: Palindromo(); break;
+            case 10: break;
+        }
+        cin.get();
+        
+        // system("clear");
+    }
 }
 
 void Menu(){
 
-    int esc;
+    int esc = 1;
     int number = 5;
     cout << "Digite o que você gostaria de fazer:\n";
-    cout << "Sair do programa\n";
+    cout << "Sair do programa[0]\n";
     cout << "Factorial [1]\n";    
     cout << "Numeros primos [2]\n";
     cout << "Eu mesmo[3]\n";
@@ -33,23 +55,6 @@ void Menu(){
     cout << "Binário para decimal [8]\n";
     cout << "Palíndromo[9]\n";
     cout << "--";
-    cin >> esc;
-
-    while (esc != 0){
-        switch (esc){
-            case 1: Factorial(); break;
-            case 2: Primo(); break;
-            case 3: Menu(); break; 
-            case 4: Base(100,16); break;
-            case 5: Retangulo(); break;
-            case 6: Soma(number); break;
-            case 7: cout << Mdc(27, 18); break;
-            case 8: Bin2dec(); break;
-            case 9: Palindromo(); break;
-            case 10: break;
-        }
-        
-    }
 }
 
 
@@ -107,7 +112,7 @@ void Retangulo(){
     cout << "Entre com os char da borda e do preenchimento: ";
     cin >> bor >> preen;
 
-        for (int i = 0; i < h; i++){
+    for (int i = 0; i < h; i++){
         for (int j = 0; j < lar; j++){
             if(i == 0 | j == 0 | i == h -1| j == lar -1 ){
                 cout << bor;
@@ -128,13 +133,11 @@ int Soma(int n){
     else {
         soma = 0;
     }
-    cout << "A soma é: " << soma;
     return soma;
 }
 
 int Mdc (int x, int y){
     return y ? Mdc(y, x%y) : abs(x);
-    
 }
 
 void Bin2dec(){
