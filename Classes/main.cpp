@@ -4,8 +4,8 @@
 using namespace std;
 
 int main(){
-    Retangulo R1;
-    Retangulo vector [4];
+    // Retangulo R1;
+    Retangulo vector [5];
     // R1.atributos();
     // cout << R1.area()<< endl;
     // bool i = R1.issquare();
@@ -15,7 +15,7 @@ int main(){
     // else 
     //     cout<< "Não é um quadrado"<< endl;
 
-    for(int i = 0; i <= 4; i++){
+    for(int i = 0; i < 5; i++){
         vector[i].atributos();
         
     }

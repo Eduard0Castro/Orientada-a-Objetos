@@ -8,7 +8,7 @@ class Retangulo{
 
     public:
     Retangulo();
-    Retangulo(int a, int l);
+    Retangulo(int, int);
     ~Retangulo();
 
     int perimetro();
@@ -16,6 +16,7 @@ class Retangulo{
     void imprime();
     bool issquare();
     void atributos();
+    void isvalid(int, int);
     
 
 };

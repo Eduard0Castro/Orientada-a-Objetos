@@ -32,9 +32,9 @@ int Retangulo::area(){
 
 void Retangulo::imprime(){
     cout << "\n";
-    for(int i = 0; i < larg; i++){
-        for(int j = 0; j < alt; j++){
-            if(i == 0 | i == larg - 1 | j == 0 | j == alt -1 ){
+    for(int i = 0; i < alt; i++){
+        for(int j = 0; j < larg; j++){
+            if(i == 0 | i == alt- 1 | j == 0 | j == larg -1 ){
                 cout << "X";
             }
             else
@@ -55,7 +55,19 @@ bool Retangulo::issquare(){
 }
 
 void Retangulo::atributos(){
+    int x, y;
     cout << "\nDigite a altura e a largura do retangulo: ";
-    cin >> alt >> larg;
-       
+    cin >> x >> y;
+    isvalid(x, y);
+               
+}
+
+void Retangulo::isvalid(int x, int y){
+
+    if (x < 0 || y < 0) 
+        alt = larg = 10;
+    else{
+        alt = x;
+        larg = y;
+    }
 }
