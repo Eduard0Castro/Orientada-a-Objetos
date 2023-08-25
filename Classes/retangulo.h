@@ -7,15 +7,15 @@ class Retangulo{
     int alt, larg;
 
     public:
-
     Retangulo();
-    Retangulo(int = 10, int = 10);
+    Retangulo(int a, int l);
     ~Retangulo();
 
     int perimetro();
     int area();
     void imprime();
-    bool issquared();
+    bool issquare();
+    void atributos();
     
 
 };

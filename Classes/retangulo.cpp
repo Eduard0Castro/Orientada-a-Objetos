@@ -4,17 +4,19 @@ using namespace std;
 
 Retangulo::Retangulo(){
     alt = larg = 10;
-    cout << "Construindo objeto";
+    cout << "Construindo objeto" << endl;
 }
 
-Retangulo::Retangulo(int a, int l){
+
+Retangulo::Retangulo(int a = 10, int l = 10){
 
     alt = a;
     larg = l;
+   
 }
 
 Retangulo::~Retangulo(){
-    cout << "Destruindo objeto";
+    cout << "Destruindo objeto" << endl;
 }
 
 int Retangulo::perimetro(){
@@ -29,22 +31,31 @@ int Retangulo::area(){
 }
 
 void Retangulo::imprime(){
+    cout << "\n";
     for(int i = 0; i < larg; i++){
-        for(int j = 0; i < alt; j++){
+        for(int j = 0; j < alt; j++){
             if(i == 0 | i == larg - 1 | j == 0 | j == alt -1 ){
                 cout << "X";
             }
             else
                 cout << "-";
         }
-        cout << endl;
+        cout << "\n";
     }
+    cout << "\n";
+
 }
 
-bool Retangulo::issquared(){
+bool Retangulo::issquare(){
     if (alt == larg)
         return true;
     else
         return false;
     
+}
+
+void Retangulo::atributos(){
+    cout << "\nDigite a altura e a largura do retangulo: ";
+    cin >> alt >> larg;
+       
 }
