@@ -8,7 +8,7 @@ int main(){
     Complexo ossa(8, 9);
     Complexo que(6, 7);
     Complexo daora;
-    
+  
     cout << "Printando 'ossa': \n";
     ossa.print();
     
@@ -16,6 +16,14 @@ int main(){
 
     cout << "Printando 'que': \n";
     que.print();
+
+
+    //Quantidade de objetos:
+    cout << "\n";
+    cout << "Quantidade de objetos instanciados: \n";
+    cout << ossa.how_many();
+    
+    cout << "\n";
     
     //Soma:
     cout << "\n";
@@ -41,13 +49,8 @@ int main(){
 
     //Módulo:
     cout << "\n";
-    cout << ossa.modulo();
+    cout << ossa.modulo() << "\n";
 
-    //Quantidade de objetos:
-    cout << "\n";
-    cout << ossa.how_many();
-    
-    cout << "\n";
 
     return 0;
 }

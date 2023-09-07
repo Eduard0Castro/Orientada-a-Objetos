@@ -25,7 +25,7 @@ class Complexo{
     void print();
 
     int how_many(){return count;}
-
+    void teste (Complexo);
     
 
 };

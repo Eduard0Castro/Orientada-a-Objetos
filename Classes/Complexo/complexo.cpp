@@ -67,6 +67,15 @@ void Complexo::print(){
         cout << " + " << get_img() << "i" << endl;
 }
 
+void Complexo::teste(Complexo comp){
+
+    //Função teste para entender melhor certos aspectos..
+    cout << comp.real << "\n";
+    cout << comp.img << "\n";
+    cout << comp.get_real() << "\n";
+    cout << comp.get_img() << "\n";
+}
+
 
 
 
