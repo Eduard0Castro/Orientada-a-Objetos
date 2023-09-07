@@ -7,17 +7,22 @@ using namespace std;
 //
 CFracao CFracao::Reduzida(void)
 {
+
 int gcd = 1;
 int minimo = m_numerador;
+
 if (m_numerador > m_denominador)
 minimo = m_denominador;
+
 for(int i = 1; i <= minimo; i++)
-{
-if ((m_numerador%i == 0) && (m_denominador%i == 0))
-gcd = i;
-}
+    {
+        if ((m_numerador%i == 0) && (m_denominador%i == 0))
+        gcd = i;
+    }
+
 m_numerador /= gcd;
 m_denominador /= gcd;
+
 return (*this);
 }
 //
@@ -26,6 +31,7 @@ return (*this);
 // retorna uma nova Fracao que é a soma do receptor com _Fracao
 CFracao CFracao::Somar(CFracao _Fracao)
 {
+
 CFracao temp( m_numerador*_Fracao.m_denominador +
 m_denominador*_Fracao.m_numerador, m_denominador*_Fracao.m_denominador
 );
