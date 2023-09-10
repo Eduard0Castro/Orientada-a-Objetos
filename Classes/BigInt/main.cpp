@@ -14,9 +14,11 @@ int main(){
     h.Read();
     h.Print();
 
+    cout << "\nSoma: ";
     Result = n.Soma(h);
     Result.Print();
 
+    cout << "Subtração: ";
     Result = n.Sub(h);
     Result.Print();
 

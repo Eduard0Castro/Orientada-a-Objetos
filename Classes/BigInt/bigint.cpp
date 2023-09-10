@@ -56,6 +56,24 @@ BigInt BigInt::Soma(BigInt b){
         b = novo;
     }
 
+     if (size < b.size) {
+        int offset = b.size - size;
+        BigInt novo;
+        novo.size = b.size;
+
+        //Bits do meu novo até o offset setados com 0:
+        for (int j = 0; j < offset; j++) {
+            novo.number[j] = 0; 
+        }
+        //Bits do offset até size do meu novo com os bits do b:
+        for (int j = offset; j < size; j++) {
+            novo.number[j] = number[j - offset];
+        }
+
+        for (int k = 0; k < novo.size; k++){
+            number[k] = novo.number[k];
+        }
+    }
         
     for(int i = c.size - 1; i >=0; i--)
     {
@@ -82,7 +100,7 @@ BigInt BigInt::Sub(BigInt b){
     c.size = max(size, b.size);
     int tam = 0;
 
-        if (b.size < size) {
+    if (b.size < size) {
         int offset = size - b.size;
         BigInt novo;
         novo.size = size;
