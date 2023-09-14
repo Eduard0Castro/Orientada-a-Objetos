@@ -30,11 +30,21 @@ Complexo Complexo::Soma(Complexo comp){
     temp.print();
     return temp;
 }
+Complexo Complexo::operator+(Complexo& n){
+    Complexo result (get_real() + n.get_real(), get_img() + n.get_img());
+    return result;
+
+}
 
 Complexo Complexo::Sub(Complexo comp){
     
     Complexo temp (get_real() - comp.get_real(), get_img() - comp.get_img());
     return temp;
+}
+
+Complexo Complexo::operator-(Complexo& n){
+    Complexo result (get_real() - n.get_real(), get_img() - n.get_img());
+    return result;
 }
 
 Complexo Complexo::Mult(Complexo comp){
@@ -76,7 +86,28 @@ void Complexo::teste(Complexo comp){
     cout << comp.get_img() << "\n";
 }
 
+bool Complexo::operator!(){
+    if (real == 0 || img == 0) return true;
+    return false;
+}
 
+//Pré incremento
+Complexo& Complexo::operator++(){
+    real +=1;
+    img +=1;
+    return *this;
+}
+
+//Pós incremento
+Complexo Complexo::operator++(int n){
+    Complexo inter;
+    inter = *this;
+    real += 1;
+    img +=1;
+
+    return inter;
+
+}
 
 
 

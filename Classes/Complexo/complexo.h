@@ -14,7 +14,11 @@ class Complexo{
     ~Complexo();
 
     Complexo Soma(Complexo);
+    Complexo operator+(Complexo&);
+
     Complexo Sub(Complexo);
+    Complexo operator-(Complexo&);
+
     Complexo Mult(Complexo);
     Complexo Div(Complexo);
 
@@ -26,6 +30,11 @@ class Complexo{
 
     int how_many(){return count;}
     void teste (Complexo);
+
+    //Operadores unários continuam sendo unários para as sobrecargas
+    bool operator!();
+    Complexo& operator ++();
+    Complexo operator++(int);
     
 
 };

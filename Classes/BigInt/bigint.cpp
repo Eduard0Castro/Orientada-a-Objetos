@@ -65,7 +65,7 @@ BigInt BigInt::Soma(BigInt b){
         for (int j = 0; j < offset; j++) {
             novo.number[j] = 0; 
         }
-        //Bits do offset até size do meu novo com os bits do b:
+        //Bits do offset até size do meu novo com os bits do number construído:
         for (int j = offset; j < size; j++) {
             novo.number[j] = number[j - offset];
         }
