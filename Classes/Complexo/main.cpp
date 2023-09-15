@@ -3,6 +3,12 @@
 
 using namespace std;
 
+//Protótipos de funções:
+void teste_friend(Complexo);
+ostream& operator >> (ostream&, Complexo&);
+istream& operator << (istream&, Complexo&);
+
+
 int main(){
 
     Complexo ossa(8, 9);
@@ -11,13 +17,19 @@ int main(){
     Complexo inter1(0,0);
     Complexo inter2;
   
+    //Operadores unários:
     cout << !inter1 << "\n";
     cout << !ossa << "\n";
-    inter1.operator++();
+    inter1++;
     inter1.print();
     inter2 = ++inter1;// inter1++;inter2 = inter1 => Pŕe incremento
     inter2.print();
 
+    inter2 = ossa++; //Pós incremento: inter2 = ossa; e depois ossa++;
+    inter2.print();
+    ossa.print();
+
+    cout << "\n";
     cout << "Printando 'ossa': \n";
     ossa.print();
     
@@ -49,7 +61,7 @@ int main(){
     daora.print();
 
     inter2 = ossa - que;
-    cout << "Subtração com sobrecarga de operadores\n";
+    cout << "Subtração com sobrecarga de operadores: inter2: \n";
     inter2.print();
 
     //Multiplicação:
@@ -69,6 +81,34 @@ int main(){
     cout << ossa.modulo() << "\n";
 
 
+    //Implementa função friend:
+    teste_friend(inter2);
+
+    //Teste para impressão e conversão de Complexos:
+    cout << "Entre com os valores para um numero complexo: ";
+    cin >> inter1;
+    cout << "\n" << inter1;
+    cout << "\n" << (int)inter1 << endl; //Conversão explícita
+    
+    int oi = inter2; //Conversão implícita
+    cout << oi<<"\n";
+    
     return 0;
 
+}
+
+//Implementação da função friend:
+void teste_friend(Complexo n){
+    double o = n.real;
+    cout << o << endl;
+
+}
+
+ostream& operator << (ostream& out, Complexo& n){
+    out << n.real << " +" << n.img << "i\n";
+    return out;
+}
+istream& operator >> (istream& in, Complexo& n){
+    in >> n.real >> n.img;
+    return in;
 }

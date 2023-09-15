@@ -1,6 +1,7 @@
 #ifndef COMPLEXO_H
 #define COMPLEXO_H
 
+using namespace std;
 class Complexo{
     private:
         double real;
@@ -36,6 +37,13 @@ class Complexo{
     Complexo& operator ++();
     Complexo operator++(int);
     
+    //Função de conversão implícita de tipo:
+    operator int();
+    //Funções friends:
+    friend void teste_friend(Complexo);
+    //Sobrecarga de operadores de entrada e saída:
+    friend ostream& operator << (ostream&, Complexo&);
+    friend istream& operator >> (istream&, Complexo&);
 
 };
 

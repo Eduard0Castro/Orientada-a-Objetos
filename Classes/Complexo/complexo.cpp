@@ -109,11 +109,7 @@ Complexo Complexo::operator++(int n){
 
 }
 
-
-
-
-
-
-
-
-
+//Conversão de tipo:
+Complexo::operator int(){
+    return sqrt(pow(real, 2) + pow(img, 2));
+}
