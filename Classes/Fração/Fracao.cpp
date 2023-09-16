@@ -139,7 +139,6 @@ string CFracao::operator>(CFracao& n){
 string CFracao::operator<=(CFracao& n){
     if((m_numerador*n.m_denominador) <= (m_denominador*n.m_numerador)) return "Sim";
     return "Não";
-
 }
 string CFracao::operator>=(CFracao& n){
     if((m_numerador*n.m_denominador) >= (m_denominador*n.m_numerador)) return "Sim";

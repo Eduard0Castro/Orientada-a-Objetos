@@ -1,11 +1,15 @@
-#ifndef ID_CFRACAO
-#define ID_CFRACAO
+#include <string>
+#include<iostream>
+
+#ifndef FRACAO_H
+#define FRACAO_H
 
 using namespace std;
 
+
 class CFracao
 {
-    protected:
+    private:
         int m_numerador;
         int m_denominador;
 
@@ -30,7 +34,7 @@ class CFracao
         }
 
         ~CFracao(void){ };
-    
+
         //Métodos de acesso
         int getNumerador(void) { return m_numerador; }
         int getDenominador(void) { return m_denominador; }
@@ -45,34 +49,34 @@ class CFracao
         int MenorQue(CFracao _Fracao);
         int MaiorQue(CFracao _Fracao);
         int Igual(CFracao _Fracao);
-    
+
         //Método de conversão
         float ComoFloat(void);
         
         void Print(void);
 
         //Sobrecarga de operadores para métodos aritméticos:
-        CFracao operator + (CFracao&);
-        CFracao operator - (CFracao&);
-        CFracao operator * (CFracao&);
-        CFracao operator / (CFracao&);
+        CFracao operator+(CFracao&);
+        CFracao operator-(CFracao&);
+        CFracao operator*(CFracao&);
+        CFracao operator/(CFracao&);
 
         //Sobrecarga de operadores de comparação:
-        string operator < (CFracao&);
-        string operator > (CFracao&);
-        string operator <= (CFracao&);
-        string operator >= (CFracao&);
-        string operator == (CFracao&);
-        string operator != (CFracao&);
+        string operator<(CFracao&);
+        string operator>(CFracao&);
+        string operator<=(CFracao&);
+        string operator>=(CFracao&);
+        string operator==(CFracao&);
+        string operator!=(CFracao&);
 
         //Sobrecarga de operadores de entrada e saída por funções friend:
-        friend ostream& operator << (ostream& out, CFracao& frac){
-            out << frac.m_numerador << "/" << frac.m_denominador;
+        friend ostream& operator<<(ostream& out, CFracao& frac){
+            out << frac.m_numerador<<"/" << frac.m_denominador;
 
             return out;
         }
-        friend istream& operator >> (istream& in, CFracao& frac){
-           
+        friend istream& operator>>(istream& in, CFracao& frac){
+            
             in >> frac.m_numerador >> frac.m_denominador;
 
             return in;
