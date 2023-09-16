@@ -11,87 +11,48 @@ istream& operator << (istream&, Complexo&);
 
 int main(){
 
-    Complexo ossa(8, 9);
-    Complexo que(6, 7);
-    Complexo daora;
-    Complexo inter1(0,0);
-    Complexo inter2;
-  
-    //Operadores unários:
-    cout << !inter1 << "\n";
-    cout << !ossa << "\n";
-    inter1++;
-    inter1.print();
-    inter2 = ++inter1;// inter1++;inter2 = inter1 => Pŕe incremento
-    inter2.print();
+    Complexo ossa(0, 0);
+    Complexo que(2, 3);
+    Complexo daora(5, 8);
+    Complexo inter(0, 0);
 
-    inter2 = ossa++; //Pós incremento: inter2 = ossa; e depois ossa++;
-    inter2.print();
-    ossa.print();
+    //Prints:
+    cout <<"ossa: "<< ossa;
+    cout << "que: " << que;
+    cout << "daora: " << daora;
+    cout << "inter: " << inter  << "\n";
+
+    //Comparações:
+    cout << "'Ossa' é maior que 'daora'? " << (ossa > daora) << "\n";
+    cout << "'que' é menor que 'daora'? " << (que < daora) << "\n";
+    cout << "'Inter' é igual a 'ossa'? " << (inter == ossa) << "\n";
+    cout << "'Daora' é diferente de 'inter'? " << (daora != inter) << "\n";
+    cout << "'Ossa' é menor ou igual a 'que'? " << (ossa <= que) << "\n";
+    cout << "'Daora' é maior ou igual a 'que'? " << (daora >= que) << "\n";
 
     cout << "\n";
-    cout << "Printando 'ossa': \n";
-    ossa.print();
-    
+
+
+
+    cout << "Entre com valores para o complexo inter: ";
+    cin >> inter;
     cout << "\n";
 
-    cout << "Printando 'que': \n";
-    que.print();
+    //Soma
+    daora = inter + ossa;
+    cout << "Soma de inter com 'ossa': " << daora << "\n";
 
+    //Subtração
+    daora = inter - que;
+    cout << "Subtração de inter com 'que': " << daora << "\n";
 
-    //Quantidade de objetos:
-    cout << "\n";
-    cout << "Quantidade de objetos instanciados: \n";
-    cout << ossa.how_many();
-    
-    cout << "\n";
-    
-    //Soma:
-    cout << "\n";
-    ossa.Soma(que);
+    //Multiplicação
+    daora = inter * daora;
+    cout << "Multiplicação de inter com 'daora'" << daora << "\n";
 
-    inter1 = ossa + que;
-    cout << "Soma com sobrecarga de operadores\n";
-    inter1.print();
-    
-    //Subtração:
-    cout << "\n";
-    cout << "Subtração: \n";
-    daora = ossa.Sub(que);
-    daora.print();
-
-    inter2 = ossa - que;
-    cout << "Subtração com sobrecarga de operadores: inter2: \n";
-    inter2.print();
-
-    //Multiplicação:
-    cout << "\n";
-    cout << "Multiplicação: \n";
-    daora = ossa.Mult(que);
-    daora.print();
-
-    //Divisão: 
-    cout << "\n";
-    cout << "Divisão: \n";
-    daora = ossa.Div(que);
-    daora.print();
-
-    //Módulo:
-    cout << "\n";
-    cout << ossa.modulo() << "\n";
-
-
-    //Implementa função friend:
-    teste_friend(inter2);
-
-    //Teste para impressão e conversão de Complexos:
-    cout << "Entre com os valores para um numero complexo: ";
-    cin >> inter1;
-    cout << "\n" << inter1;
-    cout << "\n" << (int)inter1 << endl; //Conversão explícita
-    
-    int oi = inter2; //Conversão implícita
-    cout << oi<<"\n";
+    //Divisão
+    daora = inter/(++ossa);
+    cout << "Divisão de inter por 'ossa incrementado: '" << daora  << "\n";
     
     return 0;
 

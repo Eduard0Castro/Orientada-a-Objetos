@@ -30,7 +30,7 @@ Complexo Complexo::Soma(Complexo comp){
     temp.print();
     return temp;
 }
-Complexo Complexo::operator+(Complexo& n){
+Complexo Complexo::operator+(Complexo n){
     Complexo result (get_real() + n.get_real(), get_img() + n.get_img());
     return result;
 
@@ -55,12 +55,25 @@ Complexo Complexo::Mult(Complexo comp){
     return temp;
 }
 
+Complexo Complexo::operator*(Complexo n){
+    Complexo result (real * n.real - img * n.img, real*n.img + img*n.real);
+    return result;
+}
+
 Complexo Complexo::Div(Complexo comp){
     
     double a = (real*comp.real + img*comp.img)/(pow(comp.real , 2) + pow(comp.img, 2));
     double b = (comp.real *img  - real*comp.img )/(pow(comp.real, 2) + pow(comp.img, 2));
     Complexo temp (a, b);
     return temp;
+}
+
+Complexo Complexo::operator/(Complexo n){
+    Complexo result ((real*n.real + img*n.img)/(pow(n.real , 2) + pow(n.img, 2)),
+    (n.real *img  - real*n.img )/(pow(n.real, 2) + pow(n.img, 2)));
+    
+    return result;
+    
 }
 
 double Complexo::modulo(){
@@ -112,4 +125,30 @@ Complexo Complexo::operator++(int n){
 //Conversão de tipo:
 Complexo::operator int(){
     return sqrt(pow(real, 2) + pow(img, 2));
+}
+
+//Comparação de complexos:
+string Complexo::operator<(Complexo n){
+    if((int)*this < (int)n) return "Sim";
+    return "Não";
+}
+string Complexo::operator>(Complexo n){
+    if((int)*this > (int)n) return "Sim";
+    return "Não";
+}
+string Complexo::operator<=(Complexo n){
+    if((int)*this <= (int)n) return "Sim";
+    return "Não";
+}
+string Complexo::operator>=(Complexo n){
+    if((int)*this >= (int)n) return "Sim";
+    return "Não";
+}
+string Complexo::operator==(Complexo n){
+    if((this->real == n.real)&&(this->img == n.img)) return "Sim";
+    return "Não";
+}
+string Complexo::operator!=(Complexo n){
+    if((this->real != n.real)&&(this->img != n.img)) return "Sim";
+    return "Não";
 }
