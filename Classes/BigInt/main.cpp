@@ -8,21 +8,27 @@ int main(){
     BigInt n;
     BigInt h;
     BigInt Result;
-    n.Read();
-    n.Print();
 
-    h.Read();
-    h.Print();
+    cout << "Digite o valor do inteiro h: " << "\n";
+    cin >> h;
 
-    cout << "\nSoma: ";
-    Result = n.Soma(h);
-    Result.Print();
+    cout << "Digite o valor da inteiro n: " << "\n";
+    cin >> n;
 
-    cout << "Subtração: ";
-    Result = n.Sub(h);
-    Result.Print();
+    Result = h + n;
+    cout << "Soma: "<< Result << "\n";
 
-    
+    Result = h - n;
+
+    cout << "Subtração: "<< Result << "\n";
+
+
+    cout << "'N' é maior que 'h'? " << (n > h) << "\n";
+    cout << "'h' é menor que 'n'? " << (h < n) << "\n";
+    cout << "'N' é igual a 'h'? " << (n == h) << "\n";
+    cout << "'n' é diferente de 'h'? " << (n != h) << "\n";
+    cout << "'N' é menor ou igual a 'h'? " << (n <= h) << "\n";
+    cout << "'h' é maior ou igual a 'n'? " << (h >= n) << "\n";
 
 
 

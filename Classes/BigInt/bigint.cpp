@@ -135,4 +135,88 @@ BigInt BigInt::Sub(BigInt b){
 
     return c;
 }
+ 
+bool operator||(string i, string n){
+    if(i == "Sim" || n == "Sim") return true;
+    return false;
+}
 
+string operator !(string n){
+    if (n == "Sim") return "Não";
+    if (n == "Não") return "Sim";
+
+    return "Não sei";
+}
+
+BigInt BigInt::operator + (BigInt& n){
+    
+    return this->Soma(n);
+}
+
+BigInt BigInt::operator - (BigInt& n){
+    
+    return this->Sub(n);
+}
+
+string BigInt::operator < (BigInt& n){
+    
+    if (size != n.size) {
+        if(size > n.size) return "Não";
+        else return "Sim";
+    }
+
+    
+    else{
+        for(int i = size-1; i >= 0; i--){
+            if(number[i] < n.number[i]) return "Sim";
+        }
+    }
+
+    return "Não";
+     
+}
+
+string BigInt::operator > (BigInt& n){
+    if (size != n.size) {
+        if(size < n.size) return "Não";
+        else return "Sim";
+    }
+
+    
+    else{
+        for(int i = size-1; i >= 0; i--){
+            if(number[i] < n.number[i]) return "Sim";
+        }
+    }
+
+    return "Não";
+}
+
+string BigInt::operator <= (BigInt& n){
+    if(*this < n || *this == n)
+        return "Sim";
+    else
+        return "Não";
+}
+
+string BigInt::operator >= (BigInt& n){
+    if(*this > n || *this == n)
+        return "Sim";
+    else
+        return "Não";
+}
+
+string BigInt::operator == (BigInt& n){
+    if(size == n.size) {
+        for(int i = 0; i < size; i++){
+            if(number[i] != n.number[i]) return "Não";
+            return "Sim";
+        }
+    }
+
+    return "Não";
+}
+
+string BigInt::operator != (BigInt& n){
+    return !(*this == n);
+}
