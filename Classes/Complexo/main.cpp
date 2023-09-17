@@ -58,7 +58,7 @@ int main(){
 
 }
 
-//Implementação da função friend:
+//Implementação das funções friend:
 void teste_friend(Complexo n){
     double o = n.real;
     cout << o << endl;
