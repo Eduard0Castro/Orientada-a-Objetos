@@ -1,5 +1,3 @@
-#include <iostream>
-
 #ifndef BIGINT_H
 #define BIGINT_H
 
@@ -32,7 +30,6 @@ class BigInt {
         string operator>=(BigInt&);
         string operator==(BigInt&);
         string operator!=(BigInt&);
-        string operator||(string);
 
         //Funções friend para sobrecarga de operadores de entrada e saída:
         friend ostream& operator<<(ostream& out, BigInt& n){
