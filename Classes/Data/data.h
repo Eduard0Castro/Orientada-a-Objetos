@@ -7,6 +7,7 @@ using namespace std;
 class Data{
     private:
         int day, month, year;
+        static int days[];
 
     public:
         Data();
@@ -15,11 +16,13 @@ class Data{
 
         
 
-        bool verify(int, int, int);
+        void verify(int, int, int);
+        bool theend(int);
+        bool anoBissexto(int);
         Data operator ++ ();
         Data operator ++ (int);
-        Data operator --();
-        Data operator --(int);
+        Data increment();
+        
 
         friend  ostream& operator << (ostream& out, Data& d){
 
@@ -27,15 +30,16 @@ class Data{
                               "Maio", "Junho", "Julho", "Agosto","Setembro", 
                               "Outubro", "Novembro", "Dezembro"};
 
-            out << d.day << "de " << _month[d.month] << "de " << d.year << "\n";
+            out << d.day << " de " << _month[d.month] << " de " << d.year << "\n";
 
+            return out;
         }
 
         friend istream& operator >> (istream& in, Data& d){
             
             in >> d.day >> d.month >> d.year;
             
-
+            return in;
         }
 };
 #endif
