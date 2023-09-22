@@ -8,36 +8,35 @@ Polinomio::Polinomio(){
     values = new double[number];
     values[0] = 1;
     values[1] = 1;
-    
-
 }
 
-Polinomio::Polinomio(int n, double va){
-    number = n;
-    *values = va;
-        
+Polinomio::Polinomio(int grau)
+{
+    number = grau;
+    values = new double[number];
+    for(int i = 0; i < number; i++)
+        values[i] = 1;
 }
 
 Polinomio Polinomio::operator+(Polinomio& p){
-    Polinomio result;
-
-    result.number = max(number, p.number);
+    Polinomio result(max(number, p.number));
+    int mini = min(number, p.number);
   
     int h;
-    for(h = 0; h < min(number, p.number); h++){
+    for(h = 0; h < mini; h++){
         result.values[h] = values[h] + p.values[h];
 
     }
 
     if(p.number > this->number){
-        for(int i = h; i < p.number; i++){
+        for(int i = mini; i < p.number; i++){
             result.values[i] = p.values[i];
         }
     }
 
     else 
         
-        for(int j = h; j < this->number; j++){
+        for(int j = mini; j < this->number; j++){
             result.values[j] = values[j];
         }
 
@@ -45,27 +44,25 @@ Polinomio Polinomio::operator+(Polinomio& p){
 }
 
 Polinomio Polinomio::operator-(Polinomio& p){
+    Polinomio result(max(number, p.number));
 
-    Polinomio result;
-    result.number = max(number, p.number);
-  
+    int mini = min(number, p.number);
     int h;
-    for(h = 0; h < min(number, p.number); h++){
+  
+    for(h = 0; h < mini; h++){
         result.values[h] = values[h] - p.values[h];
-
     }
 
     if(p.number > this->number){
-        for(int i = h; i < p.number; i++){
+        for(int i = mini; i < p.number; i++){
             result.values[i] = -p.values[i];
         }
     }
-
-    else 
-        
-        for(int j = h; j < this->number; j++){
+    else{
+        for(int j = mini; j < number; j++){
             result.values[j] = values[j];
         }
+    }
 
     return result;
 }

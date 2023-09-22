@@ -8,19 +8,16 @@ class Polinomio{
 
     private: 
         int number;
-        double *values;
-
 
     public:
+        double *values;
         Polinomio();
-        Polinomio(int, double);
-        ~Polinomio(){}
-
-
-
+        Polinomio(int grau);
 
         Polinomio operator+(Polinomio&);
         Polinomio operator-(Polinomio&);
+
+        int getGrau() { return this->number; }
     
         friend ostream& operator <<(ostream& out, Polinomio& n){
             for(int i = 0; i < n.number; i++){
@@ -38,9 +35,10 @@ class Polinomio{
             cout << "Polinomio: C0 + C1x1 + C2x2 + ... + Cnxn = 0\n";
             cout << "Digite o grau do polinomio que será apresentado: ";
             in >> n.number;
+            n.values = new double[n.number];
             for (int i = 0; i < n.number; i++){
-            cout << "Digite o valor do C" << i <<  ": ";
-            in >> n.values[i];
+                cout << "Digite o valor do C" << i <<  ": ";
+                in >> n.values[i];
             }
             
             return in;

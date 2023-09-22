@@ -18,8 +18,6 @@ int main() {
     result = h4 + h3;
     cout << result;
 
-    cout << "\n";
-
     cout << "Subtração: \n";
     result = h4 - h3;
     cout << result;
