@@ -1,7 +1,11 @@
 #include <iostream>
 #include "Fracao.h"
+#include "complexo.h"
 
 using namespace std;
+
+ostream& operator << (ostream&, Complexo&);
+istream& operator >> (istream&, Complexo&);
 int main(){
 
     CFracao a (1, 3);
@@ -9,6 +13,7 @@ int main(){
     CFracao c (4, 5);
     CFracao d (5, 3);
     CFracao oper(1, 1);
+    Complexo comp(4, 5);
 
     //Prints:
     cout <<"a: "<< a << "\n";
@@ -45,8 +50,32 @@ int main(){
     //Divisão:
     oper = a / d;
     cout << "Divisão de a por d: " << oper << "\n";
+
+    cout << "\nConversão do Complexo 'comp' para float: \n";
+    cout << (float)comp << "\n";
+
+    cout << "\nConversão do Complexo 'comp' para inteiro: \n";
+    cout << (int)comp << "\n";
+
+    cout << "\nConversão do CFracao 'd' para float: \n";
+    cout << (float)d << "\n";
     
+    cout << "\nConversão do CFracao 'd' para inteiro: \n";
+    cout << (int)d << "\n";
+
+    cout << "\nConversão do CFracao 'd' para complexo: \n";
+    Complexo inter = (Complexo)d;
+    cout << inter << "\n";
 
 
     return 0;
+}
+
+ostream& operator << (ostream& out, Complexo& n){
+    out << n.real << " +" << n.img << "i\n";
+    return out;
+}
+istream& operator >> (istream& in, Complexo& n){
+    in >> n.real >> n.img;
+    return in;
 }

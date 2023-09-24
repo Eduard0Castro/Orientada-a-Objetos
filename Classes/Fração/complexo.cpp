@@ -127,6 +127,10 @@ Complexo::operator int(){
     return sqrt(pow(real, 2) + pow(img, 2));
 }
 
+Complexo::operator float(){
+    return sqrt(pow(real, 2) + pow(img, 2));
+}
+
 
 
 //Comparação de complexos:

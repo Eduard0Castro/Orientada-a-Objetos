@@ -31,8 +31,4 @@ int main(){
     cout << "Ano bissexto: " << bis;
     cout << "Ano não bissexto: " << nbis;
 
-
-
-
-
 }

@@ -127,6 +127,22 @@ CFracao CFracao::operator/(CFracao& _Fracao){
 
 }
 
+//Conversão de tipo:
+CFracao::operator Complexo() {
+    
+    return Complexo(this->ComoFloat(), 0.0);
+
+}
+
+CFracao::operator float(){
+    return ((float)m_numerador/(float)m_denominador);
+}
+
+CFracao::operator int(){
+    
+    return ((int)((float)*this)); 
+}
+
 //Comparação de CFracaos:
 string CFracao::operator<(CFracao& n){
     if((m_numerador*n.m_denominador) < (m_denominador*n.m_numerador)) return "Sim";

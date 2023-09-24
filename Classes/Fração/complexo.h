@@ -54,6 +54,7 @@ class Complexo{
         
         //Função de conversão implícita de tipo:
         operator int();
+        operator float();
    
 
         //Funções friends:
