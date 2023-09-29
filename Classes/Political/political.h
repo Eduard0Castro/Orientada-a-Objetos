@@ -16,7 +16,9 @@ class Political{
         cargo(c), partido(p){
             cout << "Político construído" << "\n";
         }
-        ~Political(){}
+        ~Political(){
+            cout << "\nPolítico destruído\n";
+        }
 
         void print(){
             cout << "Nome: " << nome << endl;
@@ -37,7 +39,9 @@ class President: public Political{
             cout << "Presidente construído" << endl;
         }
 
-        ~President(){}
+        ~President(){
+            cout << "\nPresidente destruído";
+        }
         void print(){
             
             cout << "\n";
@@ -56,7 +60,9 @@ class Governor: public President{
         Governor(string n, string o, string p, string c, string s):President(n, o, p, c), state(s){
             cout << "Governador contruído" << "\n";
         }
-        ~Governor(){}
+        ~Governor(){
+            cout << "\nGovernador destruído";
+        }
 
         void print(){
             
@@ -75,7 +81,9 @@ class Mayor: public Governor{
             cout << "Prefeito construído" << "\n";
         }
         
-        ~Mayor(){}
+        ~Mayor(){
+            cout << "\nPrefeito destruído";
+        }
 
         void print(){
             

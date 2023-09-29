@@ -13,12 +13,19 @@ class Polinomio{
         double *values;
         Polinomio();
         Polinomio(int grau);
+        Polinomio(const Polinomio&);
+
+
 
         Polinomio operator+(Polinomio&);
         Polinomio operator-(Polinomio&);
 
         int getGrau() { return this->number; }
-    
+
+        Polinomio deriva();
+        float calcula(float);
+        float NewtonsMethod(float, int);
+
         friend ostream& operator <<(ostream& out, Polinomio& n){
             for(int i = 0; i < n.number; i++){
                 if(i != n.number - 1) out << n.values[i] << "x^" << i << " + ";

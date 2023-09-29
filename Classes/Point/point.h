@@ -111,6 +111,7 @@ istream& operator >> (istream& in, Circle& c){
     return in;
 }
 
+//Friends Cylinder
 ostream& operator << (ostream& out, Cylinder& cil){
     cil.print();
     return out;

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "polinomio.h"
+#include <cmath>
 
 using namespace std;
 
@@ -17,6 +18,18 @@ Polinomio::Polinomio(int grau)
     for(int i = 0; i < number; i++)
         values[i] = 1;
 }
+
+Polinomio::Polinomio(const Polinomio& p)
+{
+    number = p.number;
+    values = new double[number];
+    for(int i = 0; i < p.number; i++)
+    {
+        values[i] = p.values[i];
+    }
+}
+
+
 
 Polinomio Polinomio::operator+(Polinomio& p){
     Polinomio result(max(number, p.number));
@@ -65,4 +78,38 @@ Polinomio Polinomio::operator-(Polinomio& p){
     }
 
     return result;
+}
+
+Polinomio Polinomio::deriva(){
+    Polinomio derivada(number -1);
+    for(int i = 1;i < number; i++){
+        derivada.values[i-1] = i*values[i];
+    }
+
+    return derivada;
+}
+
+float Polinomio::calcula(float ponto){
+    
+    float result;
+    for(int i = 0; i < number; i++){
+        result += values[i]*pow(ponto, i);
+    }
+    return result;
+}
+
+float Polinomio::NewtonsMethod(float Xo, int m){
+
+    Polinomio copia(*this);
+    float result;
+    
+    Polinomio derivada = copia.deriva();
+    cout << "Oláaaa!\n";
+    for(int i = 0; i < m; i++){
+        result = Xo - (copia.calcula(Xo)/derivada.calcula(Xo));
+        Xo = result;
+    }
+
+    return result;
+
 }
