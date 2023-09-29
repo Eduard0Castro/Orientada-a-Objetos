@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Fracao.h"
-#include "complexo.h"
+#include "../Complexo/complexo.h"
 
 using namespace std;
 
