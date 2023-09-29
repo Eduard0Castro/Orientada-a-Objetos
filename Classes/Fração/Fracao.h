@@ -1,3 +1,4 @@
+#include "complexo.h"
 #include <string>
 #include<iostream>
 
@@ -68,6 +69,12 @@ class CFracao
         string operator>=(CFracao&);
         string operator==(CFracao&);
         string operator!=(CFracao&);
+
+        //Operadores para conversão de tipo:
+        explicit operator Complexo();
+        operator int();
+        operator float();
+
 
         //Sobrecarga de operadores de entrada e saída por funções friend:
         friend ostream& operator<<(ostream& out, CFracao& frac){
