@@ -82,6 +82,7 @@ Polinomio Polinomio::operator-(Polinomio& p){
 
 Polinomio Polinomio::deriva(){
     Polinomio derivada(number -1);
+    
     for(int i = 1;i < number; i++){
         derivada.values[i-1] = i*values[i];
     }
@@ -91,7 +92,7 @@ Polinomio Polinomio::deriva(){
 
 float Polinomio::calcula(float ponto){
     
-    float result;
+    float result = 0;
     for(int i = 0; i < number; i++){
         result += values[i]*pow(ponto, i);
     }
@@ -104,7 +105,7 @@ float Polinomio::NewtonsMethod(float Xo, int m){
     float result;
     
     Polinomio derivada = copia.deriva();
-    cout << "Oláaaa!\n";
+
     for(int i = 0; i < m; i++){
         result = Xo - (copia.calcula(Xo)/derivada.calcula(Xo));
         Xo = result;

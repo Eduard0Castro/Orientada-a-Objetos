@@ -28,11 +28,12 @@ int main() {
     result = h3.deriva();
     cout << result;
 
-    cout << "Valor em um ponto para a derivada: \n";
-    calculo = result.calcula(1);
+    int ponto = 2;
+    cout << "Valor para o ponto: " << ponto << endl;
+    calculo = h3.calcula(ponto);
     cout << calculo << endl;
 
     cout << "Uma das raízes calculada pelo método de Newton: \n";
-    calculo = result.NewtonsMethod(5, 1000);
+    calculo = h3.NewtonsMethod(20, 200000);
     cout << calculo << endl;
 }
