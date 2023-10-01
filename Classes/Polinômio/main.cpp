@@ -8,7 +8,8 @@ int main() {
     Polinomio h4;
     Polinomio h3;
     Polinomio result;
-
+    
+    int ponto = 2;
     float calculo;
 
     cin >> h4 >> h3;
@@ -28,7 +29,6 @@ int main() {
     result = h3.deriva();
     cout << result;
 
-    int ponto = 2;
     cout << "Valor para o ponto: " << ponto << endl;
     calculo = h3.calcula(ponto);
     cout << calculo << endl;
