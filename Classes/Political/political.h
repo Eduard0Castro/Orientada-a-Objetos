@@ -12,19 +12,42 @@ class Political{
     public:
         
       
-        Political(string n, string c, string p): nome(n), 
+        Political(string n = "", string c = "", string p = ""): nome(n), 
         cargo(c), partido(p){
-            cout << "Político construído" << "\n";
+            //cout << "Político construído" << "\n";
         }
-        ~Political(){
-            cout << "\nPolítico destruído\n";
+        virtual ~Political(){
+            //cout << "\nPolítico destruído\n";
         }
 
-        void print(){
+        virtual void print(){
+            cout << "\n";
             cout << "Nome: " << nome << endl;
             cout << "Cargo: " << cargo << endl;
             cout << "Partido: " << partido << endl;
        
+        }
+
+        virtual void read(){
+            cout << "Digite o nome do político: ";
+            cin >> nome;
+
+            cout << "Digite o cargo do político: ";
+            cin >> cargo;
+
+            cout << "Digite o partido do político: ";
+            cin >> partido;
+
+        }
+
+        friend ostream& operator <<(ostream& out, Political& P){
+            P.print();
+            return out;
+        }
+
+        friend istream& operator >> (istream& in, Political& P){
+            P.read();
+            return in;
         }
 
 };
@@ -35,19 +58,27 @@ class President: public Political{
         string country;
 
     public:
-        President(string n, string o, string p, string c ): Political(n, o, p), country(c) {
-            cout << "Presidente construído" << endl;
+        President(string n = "", string o = "", 
+                  string p = "", string c = "" ): Political(n, o, p), country(c) {
+                    
+            //cout << "Presidente construído" << endl;
         }
 
         ~President(){
-            cout << "\nPresidente destruído";
+            //cout << "\nPresidente destruído";
         }
         void print(){
             
-            cout << "\n";
             Political::print();
             cout << "País: " << country << endl;
             
+        }
+
+        void read(){
+            Political::read();
+            cout << "Digite o país do político: ";
+            cin >> country;
+
         }
 };
 
@@ -57,17 +88,25 @@ class Governor: public President{
         string state;
 
     public:
-        Governor(string n, string o, string p, string c, string s):President(n, o, p, c), state(s){
-            cout << "Governador contruído" << "\n";
+        Governor(string n = "", string o = "", string p = "", 
+                 string c = "", string s = ""):President(n, o, p, c), state(s){
+
+           //cout << "Governador contruído" << "\n";
         }
         ~Governor(){
-            cout << "\nGovernador destruído";
+            //cout << "\nGovernador destruído";
         }
 
         void print(){
             
             President::print();
             cout << "Estado: " << state << endl;
+        }
+
+        void read(){
+            President::read();
+            cout << "Digite o estado do político: ";
+            cin >> state;
         }
 };
 
@@ -77,23 +116,30 @@ class Mayor: public Governor{
 
     public:
         
-        Mayor(string n, string o, string p, string c, string s, string t):Governor(n, o, p, c, s), town(t){
-            cout << "Prefeito construído" << "\n";
+        Mayor(string n = "", string o = "", string p = "",
+              string c = "", string s = "", string t = ""):Governor(n, o, p, c, s), town(t){
+
+            //cout << "Prefeito construído" << "\n";
         }
         
         ~Mayor(){
-            cout << "\nPrefeito destruído";
+            //cout << "\nPrefeito destruído";
         }
 
         void print(){
             
             Governor::print();
             cout << "Cidade: " << town << endl;
-            cout << "\n";
             
-
+            
         }
 
+        void read(){
+            
+            Governor::read();
+            cout << "Digite o a cidade do político: ";
+            cin >> town;
+        }
 };
 
 #endif
