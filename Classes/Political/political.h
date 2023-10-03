@@ -124,18 +124,14 @@ class Mayor: public Governor{
         }
 
         void print(){
-            
             Governor::print();
             cout << "Cidade: " << town << endl;
-            
         }
 
         void read(){
-            
             Governor::read();
             cout << "Digite o a cidade do político: ";
             cin >> town;
-
         }
 };
 
