@@ -60,7 +60,7 @@ class President: public Political{
     public:
         President(string n = "", string o = "", 
                   string p = "", string c = "" ): Political(n, o, p), country(c) {
-                    
+
             //cout << "Presidente construído" << endl;
         }
 
@@ -68,10 +68,8 @@ class President: public Political{
             //cout << "\nPresidente destruído";
         }
         void print(){
-            
             Political::print();
             cout << "País: " << country << endl;
-            
         }
 
         void read(){
@@ -98,7 +96,6 @@ class Governor: public President{
         }
 
         void print(){
-            
             President::print();
             cout << "Estado: " << state << endl;
         }
@@ -131,7 +128,6 @@ class Mayor: public Governor{
             Governor::print();
             cout << "Cidade: " << town << endl;
             
-            
         }
 
         void read(){
@@ -139,6 +135,7 @@ class Mayor: public Governor{
             Governor::read();
             cout << "Digite o a cidade do político: ";
             cin >> town;
+
         }
 };
 
