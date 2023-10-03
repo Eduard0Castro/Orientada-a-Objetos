@@ -14,13 +14,15 @@ class Point{
     public:
 
         Point(int xx = 0, int yy = 0): x(xx), y(yy){}
-        ~Point(){}
+        virtual ~Point(){}
 
-        double area(){return 0;}
-        double volume(){return 0;}
+        virtual double area(){return 0;}
+        virtual double volume(){return 0;}
 
-        void read(){cin >> x >> y;}
-        void print(){cout << "(" << x << ", " << y << ")\n";}
+        virtual void read(){
+            cout << "Digite os pontos x e y: ";
+            cin >> x >> y;}
+        virtual void print(){cout << "(" << x << ", " << y << ")\n";}
 
         friend ostream& operator << (ostream&, Point&);
         friend istream& operator >> (istream&, Point&);
@@ -45,6 +47,7 @@ class Circle:public Point{
 
         void read(){
             Point::read();
+            cout << "Digite o valor do raio do círculo: ";
             cin >> radius;
         }
 
@@ -53,8 +56,6 @@ class Circle:public Point{
             cout << "Raio: " << radius << endl;
             }
 
-        friend ostream& operator << (ostream&, Circle&);
-        friend istream& operator >> (istream&, Circle&);
 };
 
 class Cylinder:public Circle{
@@ -79,6 +80,7 @@ class Cylinder:public Circle{
 
         void read(){
             Circle::read();
+            cout << "Digite a altura do cilindro: ";
             cin >> altura;
         }
 
@@ -87,8 +89,6 @@ class Cylinder:public Circle{
             cout << "Altura: " << altura << endl; 
         }
 
-        friend ostream& operator << (ostream&, Cylinder&);
-        friend istream& operator >> (istream&, Cylinder&);
 };
 
 //Friends Point:
@@ -101,23 +101,4 @@ istream& operator >> (istream& in, Point& p){
     return in;
 }
 
-//Friends Circle:
-ostream& operator << (ostream& out, Circle& c){
-    c.print();
-    return out;
-}
-istream& operator >> (istream& in, Circle& c){
-    c.read();
-    return in;
-}
-
-//Friends Cylinder
-ostream& operator << (ostream& out, Cylinder& cil){
-    cil.print();
-    return out;
-}
-istream& operator >> (istream& in, Cylinder& cil){
-    cil.read();
-    return in;
-}
 #endif
