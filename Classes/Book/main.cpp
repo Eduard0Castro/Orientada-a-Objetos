@@ -9,5 +9,10 @@ int main(){
     cout << galgo;
     cout << unknown;
 
+    cout << "\nDigite atributos para o livro 'unknown': \n";
+    cin >> unknown;
+
+    cout << unknown;
+
 
 }

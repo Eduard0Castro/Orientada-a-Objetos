@@ -80,6 +80,19 @@ Polinomio Polinomio::operator-(Polinomio& p){
     return result;
 }
 
+Polinomio Polinomio::operator=(const Polinomio& p){
+    
+    number = p.number;
+    delete [] values;
+    values = new double[number];
+    for(int i = 0; i < p.number; i++)
+    {
+        values[i] = p.values[i];
+    }
+
+    return *this;
+}
+
 Polinomio Polinomio::deriva(){
     Polinomio derivada(number -1);
     
