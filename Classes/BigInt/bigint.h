@@ -31,6 +31,8 @@ class BigInt {
         string operator==(BigInt&);
         string operator!=(BigInt&);
 
+        bool palindromo();
+
         //Funções friend para sobrecarga de operadores de entrada e saída:
         friend ostream& operator<<(ostream& out, BigInt& n){
 

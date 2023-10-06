@@ -91,6 +91,69 @@ class Cylinder:public Circle{
 
 };
 
+
+class Quadrado: public Point{
+    protected:
+        double l;
+
+    public:
+
+        Quadrado(double xx = 0, double yy = 0, double ll = 0):Point(xx, yy), l(ll){}
+        ~Quadrado(){}
+
+        double area(){
+            double areia = l*l;
+            return areia;
+        }
+
+        double volume(){
+            return 0;
+        }
+
+        virtual void print(){
+            Point::print();
+        }
+        virtual void read(){
+            Point::read();
+            cout << "Digite o comprimento do lado do quadrado: ";
+            cin >> l;
+        }
+
+
+};
+
+class Prisma:public Quadrado{
+    protected:
+        double altura;
+
+    public:
+
+        Prisma(double xx =0, double yy = 0, double ll = 0, double aa = 0): Quadrado(xx, yy, ll), altura(aa){}
+        ~Prisma(){}
+
+        double area(){
+            double areia = Quadrado::area();
+            areia = areia*6;
+            return areia;
+        }
+
+        double volume(){
+            double vol = Quadrado::area()*altura;
+            return vol;
+        }
+
+        void print(){
+            Quadrado::print();
+            cout << "Altura: " << altura << "\n";
+        }
+        void read(){
+            Quadrado::read();
+            cout << "Digite a altura do prisma: ";
+            cin >> altura;
+        }
+
+};
+
 //Friends Point:
 ostream& operator << (ostream& out, Point& p){
     p.print();
