@@ -23,6 +23,7 @@ class Polinomio{
         Polinomio operator+(Polinomio&);
         Polinomio operator-(Polinomio&);
         Polinomio operator=(const Polinomio&);
+        double operator[](int);
 
         int getGrau() { return this->number; }
 

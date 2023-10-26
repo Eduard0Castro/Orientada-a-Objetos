@@ -8,6 +8,7 @@ int main() {
     Polinomio h4;
     Polinomio h3;
     Polinomio result;
+    int index = 0;
     
     int ponto = 2;
     float calculo;
@@ -36,4 +37,22 @@ int main() {
     cout << "Uma das raízes calculada pelo método de Newton: \n";
     calculo = h3.NewtonsMethod(20, 200000);
     cout << calculo << endl;
+
+    cout << "Digite um índice para ver o coeficiente: ";
+    cin >> index;
+
+    try {
+        
+        cout << h3[index] << endl;
+        cout << "Passou direto" << endl;
+
+    }
+
+    catch(out_of_range &ex){
+
+        cout << "Valor fora do range!" << endl;        
+
+    }
+
+    cout<< "Finished\n";
 }

@@ -1,6 +1,8 @@
 #include <iostream>
 #include "polinomio.h"
 #include <cmath>
+#include <exception>
+#include <stdexcept>
 
 using namespace std;
 
@@ -91,6 +93,14 @@ Polinomio Polinomio::operator=(const Polinomio& p){
     }
 
     return *this;
+}
+
+double Polinomio::operator[](int index){
+    if ((index > number - 1) || (index <= 0)){
+        throw out_of_range("Indíce inválido para o polinômio!");
+    }
+    else
+        return values[index];
 }
 
 Polinomio Polinomio::deriva(){
