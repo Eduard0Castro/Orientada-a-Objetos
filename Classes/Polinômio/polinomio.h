@@ -18,8 +18,6 @@ class Polinomio{
             delete [] values;
         }
 
-
-
         Polinomio operator+(Polinomio&);
         Polinomio operator-(Polinomio&);
         Polinomio operator=(const Polinomio&);

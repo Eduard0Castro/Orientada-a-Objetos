@@ -7,8 +7,8 @@ using namespace std;
     Pilha::Pilha(int memoria){
 
         topo = -1;
-        size = (memoria > 0)?memoria:9;
-        dados = new int [memoria];
+        size = (memoria > 0)?memoria:10;
+        dados = new int [size];
 
     }
     Pilha::~Pilha(){

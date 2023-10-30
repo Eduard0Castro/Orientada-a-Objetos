@@ -10,7 +10,7 @@ class Zero_Exception: public runtime_error{
 };
 
 
-double quociente(int x, int y){
+double quociente(double x, double y){
     if (y == 0)
         throw Zero_Exception();
        
@@ -18,8 +18,8 @@ double quociente(int x, int y){
 }
 
 int main(){
-    double num = 0.0;
-    double den = 0.0;
+    double num;
+    double den;
 
     cout << "Digite um valor para o numerador e denominador respectivamente: ";
     cin >> num >> den;

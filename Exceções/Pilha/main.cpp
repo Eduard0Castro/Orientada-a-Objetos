@@ -3,7 +3,7 @@
 using namespace std;
 int main()
 {
-    Pilha pInt(0);
+    Pilha pInt;
     int aux;
     try
     {

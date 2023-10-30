@@ -132,8 +132,7 @@ class Prisma:public Quadrado{
         ~Prisma(){}
 
         double area(){
-            double areia = Quadrado::area();
-            areia = areia*6;
+            double areia = 2*Quadrado::area() + 4*Quadrado::l*altura;
             return areia;
         }
 
