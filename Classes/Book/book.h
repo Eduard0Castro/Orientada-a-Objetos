@@ -33,10 +33,18 @@ class Book {
         }
 
         friend istream& operator >> (istream& in, Book& b){
-            in >> b.title >> b.author >> b.company >> b.genre;
+           
+            cout << "Digite o título do livro: ";
+            cin >> b.title;
+            cout << "Digite o autor do livro: ";
+            cin >> b.author;
+            cout << "Digite a editora do livro: ";
+            cin >> b.company;
+            cout << "Digite o gênero do livro: ";
+            cin >> b.genre;
+            
             return in;
         }
-
 };
 
 

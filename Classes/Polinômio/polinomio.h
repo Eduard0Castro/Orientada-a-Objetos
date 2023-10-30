@@ -14,11 +14,14 @@ class Polinomio{
         Polinomio();
         Polinomio(int grau);
         Polinomio(const Polinomio&);
-
-
+        ~Polinomio(){
+            delete [] values;
+        }
 
         Polinomio operator+(Polinomio&);
         Polinomio operator-(Polinomio&);
+        Polinomio operator=(const Polinomio&);
+        double operator[](int);
 
         int getGrau() { return this->number; }
 

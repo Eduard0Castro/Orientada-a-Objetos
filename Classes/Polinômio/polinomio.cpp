@@ -1,6 +1,8 @@
 #include <iostream>
 #include "polinomio.h"
 #include <cmath>
+#include <exception>
+#include <stdexcept>
 
 using namespace std;
 
@@ -80,8 +82,30 @@ Polinomio Polinomio::operator-(Polinomio& p){
     return result;
 }
 
+Polinomio Polinomio::operator=(const Polinomio& p){
+    
+    number = p.number;
+    delete [] values;
+    values = new double[number];
+    for(int i = 0; i < p.number; i++)
+    {
+        values[i] = p.values[i];
+    }
+
+    return *this;
+}
+
+double Polinomio::operator[](int index){
+    if ((index > number - 1) || (index <= 0)){
+        throw out_of_range("Indíce inválido para o polinômio!");
+    }
+    else
+        return values[index];
+}
+
 Polinomio Polinomio::deriva(){
     Polinomio derivada(number -1);
+    
     for(int i = 1;i < number; i++){
         derivada.values[i-1] = i*values[i];
     }
@@ -91,7 +115,7 @@ Polinomio Polinomio::deriva(){
 
 float Polinomio::calcula(float ponto){
     
-    float result;
+    float result = 0;
     for(int i = 0; i < number; i++){
         result += values[i]*pow(ponto, i);
     }
@@ -104,7 +128,7 @@ float Polinomio::NewtonsMethod(float Xo, int m){
     float result;
     
     Polinomio derivada = copia.deriva();
-    cout << "Oláaaa!\n";
+
     for(int i = 0; i < m; i++){
         result = Xo - (copia.calcula(Xo)/derivada.calcula(Xo));
         Xo = result;

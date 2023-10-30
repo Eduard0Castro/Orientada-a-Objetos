@@ -14,13 +14,15 @@ class Point{
     public:
 
         Point(int xx = 0, int yy = 0): x(xx), y(yy){}
-        ~Point(){}
+        virtual ~Point(){}
 
-        double area(){return 0;}
-        double volume(){return 0;}
+        virtual double area(){return 0;}
+        virtual double volume(){return 0;}
 
-        void read(){cin >> x >> y;}
-        void print(){cout << "(" << x << ", " << y << ")\n";}
+        virtual void read(){
+            cout << "Digite os pontos x e y: ";
+            cin >> x >> y;}
+        virtual void print(){cout << "(" << x << ", " << y << ")\n";}
 
         friend ostream& operator << (ostream&, Point&);
         friend istream& operator >> (istream&, Point&);
@@ -45,6 +47,7 @@ class Circle:public Point{
 
         void read(){
             Point::read();
+            cout << "Digite o valor do raio do círculo: ";
             cin >> radius;
         }
 
@@ -53,8 +56,6 @@ class Circle:public Point{
             cout << "Raio: " << radius << endl;
             }
 
-        friend ostream& operator << (ostream&, Circle&);
-        friend istream& operator >> (istream&, Circle&);
 };
 
 class Cylinder:public Circle{
@@ -79,6 +80,7 @@ class Cylinder:public Circle{
 
         void read(){
             Circle::read();
+            cout << "Digite a altura do cilindro: ";
             cin >> altura;
         }
 
@@ -87,8 +89,68 @@ class Cylinder:public Circle{
             cout << "Altura: " << altura << endl; 
         }
 
-        friend ostream& operator << (ostream&, Cylinder&);
-        friend istream& operator >> (istream&, Cylinder&);
+};
+
+
+class Quadrado: public Point{
+    protected:
+        double l;
+
+    public:
+
+        Quadrado(double xx = 0, double yy = 0, double ll = 0):Point(xx, yy), l(ll){}
+        ~Quadrado(){}
+
+        double area(){
+            double areia = l*l;
+            return areia;
+        }
+
+        double volume(){
+            return 0;
+        }
+
+        virtual void print(){
+            Point::print();
+        }
+        virtual void read(){
+            Point::read();
+            cout << "Digite o comprimento do lado do quadrado: ";
+            cin >> l;
+        }
+
+
+};
+
+class Prisma:public Quadrado{
+    protected:
+        double altura;
+
+    public:
+
+        Prisma(double xx =0, double yy = 0, double ll = 0, double aa = 0): Quadrado(xx, yy, ll), altura(aa){}
+        ~Prisma(){}
+
+        double area(){
+            double areia = 2*Quadrado::area() + 4*Quadrado::l*altura;
+            return areia;
+        }
+
+        double volume(){
+            double vol = Quadrado::area()*altura;
+            return vol;
+        }
+
+        void print(){
+            Quadrado::print();
+            cout << "Altura: " << altura << "\n";
+        }
+        void read(){
+            Quadrado::read();
+            cout << "Digite a altura do prisma: ";
+            cin >> altura;
+        }
+
 };
 
 //Friends Point:
@@ -101,23 +163,4 @@ istream& operator >> (istream& in, Point& p){
     return in;
 }
 
-//Friends Circle:
-ostream& operator << (ostream& out, Circle& c){
-    c.print();
-    return out;
-}
-istream& operator >> (istream& in, Circle& c){
-    c.read();
-    return in;
-}
-
-//Friends Cylinder
-ostream& operator << (ostream& out, Cylinder& cil){
-    cil.print();
-    return out;
-}
-istream& operator >> (istream& in, Cylinder& cil){
-    cil.read();
-    return in;
-}
 #endif

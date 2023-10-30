@@ -5,32 +5,72 @@ using namespace std;
 
 int main(){
 
-    Point p (1, 2);
-    Circle cir(2, 5, 2);
-    Cylinder cil(3, 8, 4, 6);
-    Circle jey;
-    Cylinder niko;
+    int n = 0;
+    int type = 0;
 
-    cout << p;
-    cout << endl;
-    cout << cir;
-    cout << endl;
-    cout << cil;
+    cout << "Digite quantos objetos gostaria de criar: ";
+    cin >> n;
 
-    cout << "\n";
-    cout << "Digite os valores de x, y e raio para o círculo 'jey'\n";
-    cin >> jey;
-    cout << "Digite os valores de x, y, raio e altura para o cilindro 'niko'\n";
-    cin >> niko;
-    cout << "\n";
+    Point *pointer [n];
 
-    cout << jey << "\n";
-    cout << niko;
+    for(int i = 0; i < n; i++){
+        
+        cout << "\nQual o tipo de point para o " << i + 1 << "°?" 
+             << "\n1 - Ponto\n2 - Circle\n3 - Cylinder \n4 - Quadrado\n5 - Prisma\n-- ";
+        cin >> type;
 
-    cout << "\n";
+        switch (type)
+        {
 
-    cout << "\nJey: "<< jey.area() << " unidades de área " << jey.volume() << " unidades de volume.\n";
-    cout << "Niko: "<< niko.area() << " unidades de área " << niko.volume() << " unidades de volume.\n";
+        case 1:
+            pointer[i] = new Point;
+            cout << "Digite os atributos do ponto: \n";
+            cin >> *pointer[i];
+            break;
+
+        case 2:
+            pointer[i] = new Circle;
+            cout << "Digite os atributos do círculo: \n";
+            cin >> *pointer[i];
+            break;
+
+        case 3:
+            pointer[i] = new Cylinder;
+            cout << "Digite os atributos do cilindro: \n";
+            cin >> *pointer[i];    
+            break;
+
+        case 4: 
+            pointer[i] = new Quadrado;
+            cout << "Digite os atributos do quadrado: \n";
+            cin >> *pointer[i];
+            break;
+
+        case 5:
+            pointer [i] = new Prisma;
+            cout << "Digite os atributos do prisma: \n";
+            cin >> *pointer[i];
+            break;
+
+        default:
+            break;
+        }
+    }
+
+    for (int j = 0; j < n; j++){
+        cout << endl;
+        cout << *pointer[j];
+        cout << "Area: "<< endl;
+        cout << pointer[j]->area() << endl;
+        cout << "Volume: "<< endl;
+        cout << pointer[j]->volume();
+        cout << endl;
+
+    }
+
+    for (int k = 0; k < n; k++){
+        delete pointer[k];
+    }
 
 
 }

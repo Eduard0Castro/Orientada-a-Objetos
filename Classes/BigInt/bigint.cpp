@@ -136,6 +136,26 @@ BigInt BigInt::Sub(BigInt b){
     return c;
 }
  
+
+bool BigInt::palindromo(){
+    BigInt inverso;
+    int cont = 0;
+    int tam = size -1;
+    inverso.size = size;
+    for(int i = tam; i >= 0; i--){
+        cont = tam - i;
+        inverso.number[i] = number[cont];
+    }
+    string valida = inverso == *this;
+    if(valida == "Sim"){
+        return true;
+        cout << "Sim!\n";
+    }
+
+    
+    return false;
+    
+}
 bool operator||(string i, string n){
     if(i == "Sim" || n == "Sim") return true;
     return false;
