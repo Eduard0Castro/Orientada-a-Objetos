@@ -2,7 +2,6 @@
 #include <cstdlib>
 #include "Pilha.h"
 
-using namespace std;
 
 int main(){
 
