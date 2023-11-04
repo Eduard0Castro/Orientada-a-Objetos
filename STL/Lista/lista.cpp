@@ -4,11 +4,18 @@
 using namespace std;
 
 int menu();
+void Teste(list<float>);
 
 int main(){
     
     Lista<int> lista;
     int esc = 0;
+    list<float> teste;
+
+    for (int i = 0; i <= 5; i++)
+        teste.push_back(i);
+
+    Teste(teste);
 
     while (esc != 14){
         esc = menu();
@@ -88,6 +95,8 @@ int main(){
                 break;
         }
     }
+
+    
 }
 
 int menu (){
@@ -111,4 +120,12 @@ int menu (){
     cout << "Escolha (1-14): ";
     cin >> esc;
     return esc;
+}
+
+void Teste(list<float> hugo){
+    list<float>::iterator it;
+    for(it = hugo.begin(); it != hugo.end(); it++ )
+        cout << *it << " ";
+
+    cout << endl;
 }
