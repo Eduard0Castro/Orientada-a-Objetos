@@ -15,6 +15,13 @@ class Lista{
         Lista(){}
         ~Lista(){}
 
+        bool isEmpty(){
+            if(lista.size() == 0)
+                return true;
+            return false;
+            
+        }
+
         void inFront(T qqc){
             lista.push_front(qqc);
         }
@@ -24,19 +31,31 @@ class Lista{
         }
 
         void outFront(){
-            lista.pop_front();
+            if(isEmpty())
+                cout << "Lista vazia!\n";
+            else
+                lista.pop_front();
         }
 
         void outEnd(){
-            lista.pop_back();
+            if(isEmpty())
+                cout << "Lista vazia!\n";
+            else
+                lista.pop_back();
         }
 
-        T first(){
-            return lista.front();
+        void first(){
+            if (isEmpty())
+                cout << "Lista vazia!\n";
+            else
+                cout << lista.front() << endl;
         }
 
-        T last (){
-            return lista.back();
+        void last (){
+            if (isEmpty())
+                cout << "Lista vazia!\n";
+            else
+                cout << lista.back() << endl;
         }
 
         int Size(){
@@ -50,7 +69,10 @@ class Lista{
         }
 
         void removeElement(T element){
-            lista.remove(element);
+            if(isEmpty())
+                cout << "Lista vazia!\n";
+            else
+                lista.remove(element);
         }
 
         bool isduplicated(const T &value){
@@ -68,9 +90,12 @@ class Lista{
         void removeduplicated(){
             //Objeto funtor, porque 'remove_if' espera uma função ou 
             //objeto funtor mas não uma função membro não estática
-            auto predicate = [this](const T &value) { return isduplicated(value); };
-            lista.remove_if(predicate);
-       
+            if (isEmpty())
+                cout << "Lista vazia\n";
+            else{
+                auto predicate = [this](const T &value) { return isduplicated(value); };
+                lista.remove_if(predicate);
+            }
         }
 
         void Revert(){

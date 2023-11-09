@@ -44,13 +44,13 @@ int main(){
 
             case 5:
                 cout << "\nPrimeiro elemento da lista: "; 
-                cout << lista.first()<< endl;
+                lista.first();
                 cout << endl;
                 break;
 
             case 6:
                 cout << "\nÚltimo elemento da lista: ";
-                cout << lista.last() << endl;
+                lista.last();
                 cout << endl;
                 break;
 

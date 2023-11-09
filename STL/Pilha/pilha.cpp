@@ -23,7 +23,10 @@ int main(){
             break;
 
         case 2:
-            pilha.pop();
+            if (pilha.size() == 0)
+                cout << "\nPilha vazia, não há o que remover!\n\n";
+            else
+                pilha.pop();
             break;
 
         case 3:
@@ -35,9 +38,14 @@ int main(){
 
         case 4:
             cout << endl;
-            cout << "Primeiro elemento da pilha: ";
-            cout << pilha.top() << endl;
-            cout << endl;
+            if (pilha.size() == 0){
+                cout << "\nPilha vazia, não há o que mostrar\n\n";
+            }
+            else{
+                cout << "Primeiro elemento da pilha: ";
+                cout << pilha.top() << endl;
+                cout << endl;
+            }
             break;
 
         case 5:
