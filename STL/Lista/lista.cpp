@@ -112,7 +112,7 @@ int menu (){
     cout << "7. Tamanho da lista \n";
     cout << "8. Redimensionar pilha \n";
     cout << "9. Remover elemento específico \n";
-    cout << "10. Remover valores dupliacados \n";
+    cout << "10. Remover valores duplicados \n";
     cout << "11. Reverter a ordem dos elementos \n";
     cout << "12. Ordenar a lista \n";
     cout << "13. Mostrar lista completa \n";
