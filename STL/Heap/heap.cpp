@@ -38,13 +38,14 @@ int main(){
             case 4:
 
                 if (heap.empty()){
-                    cout << "\nPrimeiro elemento da heap: " << heap.top() << endl;
-                    cout << endl;
+                    cout << "\nHeap vazia, volte outro dia!\n";
+
                 }
 
-                else    
-                    cout << "\nHeap vazia, volte outro dia!\n" << endl;
+                else  
+                    cout << "\nPrimeiro elemento da heap: " << heap.top() << endl;
 
+                cout << endl;  
                 break;
 
             case 5:
