@@ -1,0 +1,10 @@
+^C:\USERS\SIRLE\ONEDRIVE\DOCUMENTOS\OPENCV\TESTE\CMAKELISTS.TXT
+setlocal
+C:\cmake\bin\cmake.exe -SC:/Users/sirle/OneDrive/Documentos/OpenCV/Teste -BC:/Users/sirle/OneDrive/Documentos/OpenCV/build --check-stamp-file C:/Users/sirle/OneDrive/Documentos/OpenCV/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

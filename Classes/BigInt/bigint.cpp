@@ -56,6 +56,24 @@ BigInt BigInt::Soma(BigInt b){
         b = novo;
     }
 
+     if (size < b.size) {
+        int offset = b.size - size;
+        BigInt novo;
+        novo.size = b.size;
+
+        //Bits do meu novo até o offset setados com 0:
+        for (int j = 0; j < offset; j++) {
+            novo.number[j] = 0; 
+        }
+        //Bits do offset até size do meu novo com os bits do number construído:
+        for (int j = offset; j < size; j++) {
+            novo.number[j] = number[j - offset];
+        }
+
+        for (int k = 0; k < novo.size; k++){
+            number[k] = novo.number[k];
+        }
+    }
         
     for(int i = c.size - 1; i >=0; i--)
     {
@@ -82,7 +100,7 @@ BigInt BigInt::Sub(BigInt b){
     c.size = max(size, b.size);
     int tam = 0;
 
-        if (b.size < size) {
+    if (b.size < size) {
         int offset = size - b.size;
         BigInt novo;
         novo.size = size;
@@ -117,4 +135,108 @@ BigInt BigInt::Sub(BigInt b){
 
     return c;
 }
+ 
 
+bool BigInt::palindromo(){
+    BigInt inverso;
+    int cont = 0;
+    int tam = size -1;
+    inverso.size = size;
+    for(int i = tam; i >= 0; i--){
+        cont = tam - i;
+        inverso.number[i] = number[cont];
+    }
+    string valida = inverso == *this;
+    if(valida == "Sim"){
+        return true;
+        cout << "Sim!\n";
+    }
+
+    
+    return false;
+    
+}
+bool operator||(string i, string n){
+    if(i == "Sim" || n == "Sim") return true;
+    return false;
+}
+
+string operator !(string n){
+    if (n == "Sim") return "Não";
+    if (n == "Não") return "Sim";
+
+    return "Não sei";
+}
+
+BigInt BigInt::operator + (BigInt& n){
+    
+    return this->Soma(n);
+}
+
+BigInt BigInt::operator - (BigInt& n){
+    
+    return this->Sub(n);
+}
+
+string BigInt::operator < (BigInt& n){
+    
+    if (size != n.size) {
+        if(size > n.size) return "Não";
+        else return "Sim";
+    }
+
+    
+    else{
+        for(int i = size-1; i >= 0; i--){
+            if(number[i] < n.number[i]) return "Sim";
+        }
+    }
+
+    return "Não";
+     
+}
+
+string BigInt::operator > (BigInt& n){
+    if (size != n.size) {
+        if(size < n.size) return "Não";
+        else return "Sim";
+    }
+
+    
+    else{
+        for(int i = size-1; i >= 0; i--){
+            if(number[i] < n.number[i]) return "Sim";
+        }
+    }
+
+    return "Não";
+}
+
+string BigInt::operator <= (BigInt& n){
+    if(*this < n || *this == n)
+        return "Sim";
+    else
+        return "Não";
+}
+
+string BigInt::operator >= (BigInt& n){
+    if(*this > n || *this == n)
+        return "Sim";
+    else
+        return "Não";
+}
+
+string BigInt::operator == (BigInt& n){
+    if(size == n.size) {
+        for(int i = 0; i < size; i++){
+            if(number[i] != n.number[i]) return "Não";
+            return "Sim";
+        }
+    }
+
+    return "Não";
+}
+
+string BigInt::operator != (BigInt& n){
+    return !(*this == n);
+}
