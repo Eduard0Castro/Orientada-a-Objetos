@@ -1,3 +1,0 @@
-C:/Users/sirle/OneDrive/Documentos/OpenCV/build/CMakeFiles/Teste.dir
-C:/Users/sirle/OneDrive/Documentos/OpenCV/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/sirle/OneDrive/Documentos/OpenCV/build/CMakeFiles/ZERO_CHECK.dir
