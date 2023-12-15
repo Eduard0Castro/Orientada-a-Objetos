@@ -9,7 +9,7 @@ using namespace std;
 class Deteccao{
     private:
         
-        cv::String path = "/Users/sirle/OneDrive/Documentos/OpenCV/Teste/src/images/red_plated.jpg";
+        cv::String path = "/Users/sirle/OneDrive/Documentos/Orientada-a-Objetos/OpenCV/Teste/src/images/red_plated.jpg";
         cv::Mat img;
         vector<cv::Rect> detects;
         cv::CascadeClassifier detec;
@@ -26,10 +26,10 @@ class Deteccao{
 
                 switch (num_detection){
                     case 1:
-                        haar_cascade = "/Users/sirle/OneDrive/Documentos/OpenCV/Teste/src/XML/haarcascade_russian_plate_number.xml";
+                        haar_cascade = "/Users/sirle/OneDrive/Documentos/Orientada-a-Objetos/OpenCV/Teste/src/XML/haarcascade_russian_plate_number.xml";
                         break;
                     case 2:
-                        haar_cascade = "/Users/sirle/OneDrive/Documentos/OpenCV/Teste/src/XML/haarcascade_frontalface_default.xml";
+                        haar_cascade = "/Users/sirle/OneDrive/Documentos/Orientada-a-Objetos/OpenCV/Teste/src/XML/haarcascade_frontalface_default.xml";
                         break;
                 }
 
