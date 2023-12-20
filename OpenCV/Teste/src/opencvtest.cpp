@@ -2,7 +2,7 @@
 
 int main(){
     
-    Deteccao mais;
+
     Deteccao detec(false, 1);
     detec.Negative();
     detec.resize();
