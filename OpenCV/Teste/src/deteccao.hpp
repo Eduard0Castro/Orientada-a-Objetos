@@ -86,7 +86,9 @@ class Deteccao{
        
             for (int i = 0; i < img.rows; i++ ){
                 for (int j = 0; j < img.cols; j++){
-                    img.at<uchar>(i,j) = 255 - img.at<uchar>(i,j);
+                    img.at<cv::Vec3b>(i,j)[0] = 255 - img.at<cv::Vec3b>(i,j)[0];
+                    img.at<cv::Vec3b>(i,j)[1] = 255 - img.at<cv::Vec3b>(i,j)[1];
+                    img.at<cv::Vec3b>(i,j)[2] = 255 - img.at<cv::Vec3b>(i,j)[2];
                 }
 
             }
