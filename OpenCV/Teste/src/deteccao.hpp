@@ -9,7 +9,7 @@ using namespace std;
 class Deteccao{
     private:
         
-        cv::String path = "/Users/sirle/OneDrive/Documentos/Orientada-a-Objetos/OpenCV/Teste/src/images/red_plated.jpg";
+        cv::String path = "./OpenCV/Teste/src/images/red_plated.jpg";
         cv::Mat img;
         vector<cv::Rect> detects;
         cv::CascadeClassifier detec;
@@ -26,10 +26,10 @@ class Deteccao{
 
                 switch (num_detection){
                     case 1:
-                        haar_cascade = "/Users/sirle/OneDrive/Documentos/Orientada-a-Objetos/OpenCV/Teste/src/XML/haarcascade_russian_plate_number.xml";
+                        haar_cascade = "./OpenCV/Teste/src/XML/haarcascade_russian_plate_number.xml";
                         break;
                     case 2:
-                        haar_cascade = "/Users/sirle/OneDrive/Documentos/Orientada-a-Objetos/OpenCV/Teste/src/XML/haarcascade_frontalface_default.xml";
+                        haar_cascade = "./OpenCV/Teste/src/XML/haarcascade_frontalface_default.xml";
                         break;
                 }
 
@@ -84,15 +84,18 @@ class Deteccao{
 
         void Negative(){
        
-            for (int i = 0; i < img.rows; i++ ){
-                for (int j = 0; j < img.cols; j++){
-                    img.at<cv::Vec3b>(i,j)[0] = 255 - img.at<cv::Vec3b>(i,j)[0];
-                    img.at<cv::Vec3b>(i,j)[1] = 255 - img.at<cv::Vec3b>(i,j)[1];
-                    img.at<cv::Vec3b>(i,j)[2] = 255 - img.at<cv::Vec3b>(i,j)[2];
+            cv:: Mat neg;
+
+            neg = img.clone();
+            for (int i = 0; i < neg.rows; i++ ){
+                for (int j = 0; j < neg.cols; j++){
+                    neg.at<cv::Vec3b>(i,j)[0] = 255 - neg.at<cv::Vec3b>(i,j)[0];
+                    neg.at<cv::Vec3b>(i,j)[1] = 255 - neg.at<cv::Vec3b>(i,j)[1];
+                    neg.at<cv::Vec3b>(i,j)[2] = 255 - neg.at<cv::Vec3b>(i,j)[2];
                 }
 
             }
-            cv::imshow("Negativo: ", img);
+            cv::imshow("Negativo: ", neg);
 
         }
         void detection_steps(){
@@ -109,6 +112,19 @@ class Deteccao{
 
             cv::imshow("Deteccao: ", img);
 
+        }
+
+        void resize(){
+            
+            cv::Mat resized;
+            int rows = img.rows;
+            int cols = img.cols;
+
+            cout << rows << " x " << cols << endl;
+
+            cv::resize(img, resized, cv::Size(cols/2, rows/2));
+
+            cv::imshow("Redimensionada: ", resized);
         }
 
 };
