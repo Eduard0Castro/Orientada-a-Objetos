@@ -6,6 +6,11 @@ bin-release/
 
 # Other files and folders
 .settings/
+.vscode
+/build
+/OpenCV/Teste/CMakeFiles
+/OpenCV/Teste/out
+
 
 # Executables
 *.swf
