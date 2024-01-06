@@ -6,6 +6,8 @@ int main(){
     Deteccao detec(false, 1);
     detec.Negative();
 
+    cout << "Teste" << endl;
+
 
     return 0;
     
