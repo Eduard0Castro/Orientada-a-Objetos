@@ -7,8 +7,9 @@ int main(){
     detec.Negative();
     detec.resize();
 
-    
-    //testando atualização
+    cout << "Teste" << endl;
+
+
     return 0;
     
 }
